@@ -3,12 +3,11 @@ const webpack = require('webpack');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = {
-    entry: './src/configurationmanager.js',
+    entry: './src/index.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/',
-        filename: '[name].js',    
-        chunkFilename: '[name].js'
+        filename: './[name].js',
+        libraryTarget: 'umd'
     },
     module: {
         rules: [
