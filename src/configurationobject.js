@@ -1,4 +1,4 @@
-class ConfigurationObject {
+export class ConfigurationObject {
     constructor(name, value) {
         this.name = name;
         this.value = value;
@@ -33,5 +33,3 @@ class ConfigurationObject {
         }
     }
 }
-
-export default ConfigurationObject;

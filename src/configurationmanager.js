@@ -1,4 +1,4 @@
-import ConfigurationObject from './configurationobject';
+import { ConfigurationObject } from './configurationobject';
 
 const load = (data, type) => {
     if (type.toLowerCase().includes('json')) {

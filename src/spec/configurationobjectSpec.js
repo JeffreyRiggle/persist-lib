@@ -1,4 +1,4 @@
-import ConfigurationObject from '../configurationobject';
+import { ConfigurationObject } from '../configurationobject';
 
 describe('configuration object', function() {
     var conf, node, childNode1, childNode2, nestedChildNode;
