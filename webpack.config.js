@@ -1,9 +1,10 @@
 const path = require('path');
 const webpack = require('webpack');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
+    mode: 'production',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: './[name].js',
@@ -16,12 +17,12 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
-                    presets: ['es2015']
+                    presets: ['@babel/preset-env']
                 }
             }
         ]
     },
     plugins: [
-        new UglifyJsPlugin()
+        new TerserPlugin()
     ]
 }
