@@ -1,0 +1,40 @@
+on: 
+    push:
+        branches:
+            - master
+
+name: Create Release
+
+jobs:
+    build:
+        name: Build
+        runs-on: ubuntu-latest
+        steps:
+          - name: Install node
+            uses: actions/setup-node@v1
+            with:
+                node-version: '10.x'
+                scope: '@jeffriggle'
+      
+          - name: Check out code
+            uses: actions/checkout@v1
+          
+          - name: Install
+            run: npm ci
+      
+          - name: Build
+            run: npm run build
+
+          - name: Version
+            run: |
+              git config --local user.email "$(git log --format='%ae' HEAD^!)"
+              git config --local user.name "$(git log --format='%an' HEAD^!)"
+              git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+              npm version patch -m "Automated version bump"
+              git push origin HEAD:master --force
+          - name: Publish
+            run: |
+              npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}  
+              npm publish
+            env:
+              NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
