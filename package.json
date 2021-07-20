@@ -4,6 +4,7 @@
   "repository": "https://github.com/JeffreyRiggle/persist-lib",
   "author": "JeffreyRiggle <JeffreyRiggle@gmail.com>",
   "license": "MIT",
+  "main": "dist/main.js",
   "scripts": {
     "build": "webpack",
     "test": "karma start karma.config.js"
