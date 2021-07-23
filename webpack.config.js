@@ -8,7 +8,8 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: './[name].js',
-        libraryTarget: 'umd'
+        libraryTarget: 'umd',
+        library: 'persistLib'
     },
     module: {
         rules: [
