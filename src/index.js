@@ -1,7 +1,7 @@
 import { load, convertConfigJSONToXML } from './configurationmanager';
 import { ConfigurationObject } from './configurationobject';
 
-module.exports = {
+export {
     load,
     convertConfigJSONToXML,
     ConfigurationObject
